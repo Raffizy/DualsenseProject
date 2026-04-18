@@ -41,7 +41,7 @@ while not ds.state.R1:
 
 
 # terminate the thread for message and close the device
-
+ds.triggerR.setForce(Force, 0)
 ds.close()
 
 print("Device Closed")
