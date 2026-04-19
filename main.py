@@ -13,8 +13,8 @@ last_cross= False
 #switch Force
 Force=1
 
-ds.triggerR.setMode(TriggerModes.Pulse_A)
-ds.triggerL.setMode(TriggerModes.Pulse_B)
+ds.triggerR.setMode(TriggerModes.Rigid)
+ds.triggerL.setMode(TriggerModes.Rigid)
 #debug command+ main loop
 # loop until r1 is pressed to feel effect
 while not ds.state.R1:
@@ -38,15 +38,16 @@ while not ds.state.R1:
 
     # set R trigger to simulate road feel, clutch
     ds.triggerR.setForce(Force, 255)
-    ds.triggerL.setForce(6, 255)
+    ds.triggerL.setForce(Force, 150)
     time.sleep(0.01)
 
     if ds.state.R2 == True:
         ds.setRightMotor(155)
         ds.setLeftMotor(255)
     else:
-        ds.setRightMotor(0)
-        ds.setLeftMotor(0)
+      ds.setRightMotor(0)
+      ds.setLeftMotor(0)
+    
 # terminate the thread for message and close the device
 ds.triggerR.setMode(TriggerModes.Off)
 ds.triggerL.setMode(TriggerModes.Off)
