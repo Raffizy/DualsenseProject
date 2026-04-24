@@ -40,13 +40,13 @@ while not ds.state.R1:
     ds.triggerR.setForce(Force, 255)
     ds.triggerL.setForce(Force, 150)
     time.sleep(0.01)
-
-    if ds.state.R2 == True:
-        ds.setRightMotor(155)
-        ds.setLeftMotor(255)
-    else:
-      ds.setRightMotor(0)
-      ds.setLeftMotor(0)
+#vibration testing
+#    if ds.state.R2 == True:
+#       ds.setRightMotor(155)
+#        ds.setLeftMotor(255)
+#    else:
+#      ds.setRightMotor(0)
+#      ds.setLeftMotor(0)
     
 # terminate the thread for message and close the device
 ds.triggerR.setMode(TriggerModes.Off)
